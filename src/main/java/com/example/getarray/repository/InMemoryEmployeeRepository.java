@@ -16,8 +16,9 @@ public class InMemoryEmployeeRepository {
         DATABASE.add(new Employee(3,"Alice","Ray","alice.ray@gmail.com"));
     }
 
-    public void addEmployee(Employee employee){
+    public Employee addEmployee(Employee employee){
         DATABASE.add(employee);
+        return employee;
     }
 
     public List<Employee> getAllEmployees(){
