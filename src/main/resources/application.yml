@@ -1,0 +1,17 @@
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:6603/employee
+    password: root
+    username: root
+    driver-class-name: com.mysql.jdbc.Driver
+  jpa:
+    database-platform: org.springframework.orm.jpa.vendor.Database.MYSQL
+    generate-ddl: true
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        globally_quoted_identifires: true
+        dialect: org.hibernate.dialect.MySQL8Dialect
+        format_sql: true
