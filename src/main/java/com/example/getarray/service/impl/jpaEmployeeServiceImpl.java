@@ -12,17 +12,17 @@ public class jpaEmployeeServiceImpl implements EmployeeService {
     private final jpaRepositoryEmployee jpaRepositoryEmployee;
     @Override
     public Employee addEmployee(Employee employee) {
-        return null;
+        return jpaRepositoryEmployee.save(employee);
     }
 
     @Override
     public List<Employee> getAllEmployees() {
-        return null;
+        return jpaRepositoryEmployee.findAll();
     }
 
     @Override
     public Employee findEmployeeById(Integer id) {
-        return null;
+        return jpaRepositoryEmployee.findById(id).get();
     }
 
     @Override
@@ -32,6 +32,7 @@ public class jpaEmployeeServiceImpl implements EmployeeService {
 
     @Override
     public boolean deleteById(Integer id) {
-        return false;
+         jpaRepositoryEmployee.deleteById(id);
+         return true;
     }
 }
