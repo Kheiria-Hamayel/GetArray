@@ -4,10 +4,14 @@ import com.example.getarray.model.Employee;
 import com.example.getarray.repository.jpaRepositoryEmployee;
 import com.example.getarray.service.EmployeeService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @RequiredArgsConstructor
+@Service
+@Qualifier(value = "employeeDB")
 public class jpaEmployeeServiceImpl implements EmployeeService {
     private final jpaRepositoryEmployee jpaRepositoryEmployee;
     @Override

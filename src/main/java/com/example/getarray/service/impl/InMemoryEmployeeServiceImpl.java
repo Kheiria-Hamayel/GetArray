@@ -4,12 +4,14 @@ import com.example.getarray.model.Employee;
 import com.example.getarray.repository.InMemoryEmployeeRepository;
 import com.example.getarray.service.EmployeeService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @RequiredArgsConstructor
 @Service
+@Qualifier(value = "Inmemory")
 public class InMemoryEmployeeServiceImpl implements EmployeeService {
 private final InMemoryEmployeeRepository inMemoryEmployeeRepository;
     @Override
