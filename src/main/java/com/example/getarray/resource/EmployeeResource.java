@@ -33,7 +33,7 @@ public class EmployeeResource {
 
     @PostMapping
     public ResponseEntity<Employee> addEmployee (@RequestBody Employee employee) {
-        employee.setId(employeeService.getAllEmployees().size() + 1 );
+        //employee.setId(employeeService.getAllEmployees().size() + 1 );
         return  ResponseEntity.created(getLocation(employee.getId())).body(employeeService.addEmployee(employee));
     }
 
@@ -43,7 +43,7 @@ public class EmployeeResource {
         return  ResponseEntity.ok(employeeService.deleteById(id));
     }
 
-    private URI getLocation(Integer id) {
+    protected static URI getLocation(Integer id) {
     return ServletUriComponentsBuilder.fromCurrentRequest().path("{id}").buildAndExpand(id).toUri();
     }
 }

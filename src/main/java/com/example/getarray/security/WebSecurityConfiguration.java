@@ -18,10 +18,11 @@ import static org.springframework.http.HttpMethod.POST;
 @RequiredArgsConstructor
 @EnableGlobalMethodSecurity(prePostEnabled = true)
 public class WebSecurityConfiguration {
+    private final AccountAuthenticationProvider accountAuthenticationProvider;
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         AuthenticationManagerBuilder authenticationManagerBuilder = http.getSharedObject(AuthenticationManagerBuilder.class);
-        authenticationManagerBuilder.authenticationProvider(null);
+        authenticationManagerBuilder.authenticationProvider(accountAuthenticationProvider);
         http.csrf().disable();
         http.authorizeRequests().antMatchers(POST,"/api/accounts/**").permitAll();
 
